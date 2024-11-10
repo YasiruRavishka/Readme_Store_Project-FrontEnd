@@ -1,0 +1,14 @@
+<div class="login-container login">
+    <h2>Login</h2>
+    <div class="form">
+        <label for="email">Email</label>
+        <input [(ngModel)]="userEmail" type="email" id="email" placeholder="test@gmail.com" required>
+
+        <label for="password">Password</label>
+        <input [(ngModel)]="userPassword" type="password" id="password" placeholder="******" [disabled]="!validEmail()" required>
+
+        <p><a href="#">Forgot password?</a></p>
+        <button type="button" class="btn btn-submit" (click)="login()" [disabled]="!(validEmail() && userPassword)">Sign In</button>
+    </div>
+    <p>Don't you have an account? <a href="#" routerLink="../signup">Sign Up Now</a></p>
+</div>
