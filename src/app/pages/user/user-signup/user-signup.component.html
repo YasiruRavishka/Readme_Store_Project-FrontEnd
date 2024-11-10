@@ -1,0 +1,23 @@
+<div class="signup-container signup">
+    <h2>Sign up</h2>
+    <div class="btn-group">
+        <button class="btn btn-primary dropdown-toggle" type="button" data-bs-toggle="dropdown"
+            data-bs-auto-close="true" aria-expanded="false">{{userType}}</button>
+        <ul class="dropdown-menu">
+            <li *ngFor="let type of accountType" class="dropdown-item" (click)="changeAccountType(type)">{{type}}</li>
+        </ul>
+    </div>
+    <div class="form">
+        <label for="email">Email</label>
+        <input [(ngModel)]="userEmail" type="email" id="email" placeholder="test@gmail.com" required>
+        
+        <label for="password">Password</label>
+        <input [(ngModel)]="userPassword" type="password" id="password" placeholder="******" required>
+
+        <label for="confirm_password">Confirm Password</label>
+        <input [(ngModel)]="userConfirmedPassword" type="password" id="confirm_password" placeholder="******" [disabled]="!userPassword" required>
+
+        <button type="button" class="btn btn-submit" (click)="signUp()" [disabled]="!(validEmail() && validPassword())">Sign Up</button>
+    </div>
+    <p>Do you have an account? <a href="#" routerLink="../login">Log In</a></p>
+</div>

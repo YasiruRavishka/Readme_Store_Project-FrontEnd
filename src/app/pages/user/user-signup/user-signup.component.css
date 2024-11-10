@@ -1,0 +1,65 @@
+.signup-container {
+  display: flex;
+}
+
+.signup {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  background: #f9f9f9;
+  align-items: center;
+  justify-content: center;
+  padding: 2rem;
+}
+
+.signup h2 {
+  font-size: 2.5rem;
+  margin-bottom: 1rem;
+}
+
+.signup .btn-group .dropdown-toggle {
+  width: 8rem;
+}
+
+.signup .dropdown-menu .dropdown-item {
+  cursor: pointer;
+}
+.signup p {
+  margin: 0.7rem;
+  text-align: center;
+}
+
+.signup .form {
+  width: 100%;
+  max-width: 20rem;
+  display: flex;
+  flex-direction: column;
+}
+
+.signup .form label {
+  margin-top: 1rem;
+}
+
+.signup .form input {
+  padding: 0.5rem;
+  margin-top: 0.5rem;
+  border: 0.1rem solid #ccc;
+  border-radius: 0.5rem;
+}
+
+.signup .btn {
+  padding: 0.75rem;
+  margin-top: 1rem;
+  border: none;
+  border-radius: 0.5rem;
+}
+
+.signup .btn-submit {
+  background-color: #4a90e2;
+  color: white;
+  font-weight: 600;
+}
+
+.signup .btn-submit:hover {
+  background-color: #0d6efd;
+}
