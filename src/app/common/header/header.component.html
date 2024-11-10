@@ -1,0 +1,38 @@
+<nav class="py-2 bg-body-tertiary border-bottom">
+  <div class="container d-flex flex-wrap">
+    <ul class="nav me-auto">
+      <li class="nav-item"><a href="#" routerLink="" class="nav-link link-body-emphasis px-2 active"
+          aria-current="page">Home</a></li>
+      <li *ngIf="isLogged()" class="nav-item"><a href="#" routerLink="user/orders" class="nav-link link-body-emphasis px-2">Orders</a></li>
+      <li *ngIf="isLogged()" class="nav-item"><a href="#" routerLink="user/inventory" class="nav-link link-body-emphasis px-2">Inventory</a>
+      </li>
+      <li class="nav-item"><a href="#" routerLink="about" class="nav-link link-body-emphasis px-2">About</a></li>
+    </ul>
+    <ul *ngIf="isLogged(); else login" class="nav">
+      <li class="nav-item"><a href="#" routerLink="user/profile" class="nav-link link-body-emphasis px-2">Profile</a></li>
+      <li class="nav-item"><a href="#" routerLink="" class="nav-link link-danger px-2" (click)="logout()">Logout</a></li>
+    </ul>
+    <ng-template #login>
+      <ul class="nav">
+        <li class="nav-item"><a href="#" routerLink="user/login" class="nav-link link-body-emphasis px-2">Login</a></li>
+        <li class="nav-item"><a href="#" routerLink="user/signup" class="nav-link link-body-emphasis px-2">Sign up</a>
+        </li>
+      </ul>
+    </ng-template>
+  </div>
+</nav>
+<header class="py-3 mb-4 border-bottom">
+  <div class="container d-flex flex-wrap justify-content-center header-content">
+    <a href="#" routerLink=""
+      class="d-flex align-items-center mb-3 mb-lg-0 me-lg-auto link-body-emphasis text-decoration-none">
+      <h1>Readme</h1>
+    </a>
+    <form class="col-12 col-lg-4 mb-3 mb-lg-0" role="search">
+      <div class="btn-group search-bar">
+        <input type="search" class="form-control" placeholder="Search..." aria-label="Search">
+        <button type="button" class="btn btn-primary"><i class="bi bi-search"></i></button>
+      </div>
+    </form>
+    <button *ngIf="isLogged()" routerLink="user/cart" type="button" class="btn btn-outline-warning m-2"><i class="bi bi-cart-fill"></i></button>
+  </div>
+</header>
