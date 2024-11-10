@@ -1,0 +1,9 @@
+<div *ngIf="!book.isDisable" class="card">
+    <img src="book.png" class="card-img-top" alt="{{book.name}}.img">
+    <div class="card-body">
+        <h5 class="card-title">{{book.name}}</h5>
+        <p class="card-text">{{book.description}}</p>
+        <h6>$ {{book.price}}</h6>
+        <button type="button" class="btn btn-primary" (click)="add()">Add to cart</button>
+    </div>
+</div>
