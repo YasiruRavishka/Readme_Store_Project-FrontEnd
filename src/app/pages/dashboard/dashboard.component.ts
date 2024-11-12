@@ -20,8 +20,10 @@ export class DashboardComponent {
   }
 
   loadLatestBook(): void {
-    this.http.get(`${this.baseUrl}/book/latest/7`).subscribe(data=>{
-      this.latestBookList = data;
+    this.http.get(`${this.baseUrl}/book/latest/7`).subscribe((data:any)=>{
+      if (data && data.length != 0) {
+        this.latestBookList = data;
+      }
     })
   }
 
