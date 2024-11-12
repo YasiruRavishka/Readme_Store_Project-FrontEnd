@@ -1,6 +1,6 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-import { AccountType } from '../../enum/account-type';
+import { UserType } from '../../enum/UserType';
 import { catchError, Observable, throwError } from 'rxjs';
 import { Router } from '@angular/router';
 import { StorageService } from '../local-storage/storage.service';
@@ -16,8 +16,8 @@ export class AccountService {
     this.loadUser();
   }
 
-  getAccountTypes(): Observable<AccountType[]> {
-    return this.http.get<AccountType[]>(`${this.baseUrl}/user/all-types`);
+  getAccountTypes(): Observable<UserType[]> {
+    return this.http.get<UserType[]>(`${this.baseUrl}/user/all-types`);
   }
 
   isValidPassword(userPassword:any, userConfirmedPassword:any): Boolean {

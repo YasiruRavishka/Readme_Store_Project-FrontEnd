@@ -3,7 +3,7 @@ import { HttpClient } from '@angular/common/http';
 import { Component, OnInit } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { RouterLink } from '@angular/router';
-import { AccountType } from '../../../enum/account-type';
+import { UserType } from '../../../enum/UserType';
 import { AccountService } from '../../../service/user-account/account.service';
 
 @Component({
@@ -14,8 +14,8 @@ import { AccountService } from '../../../service/user-account/account.service';
   styleUrl: './user-signup.component.css'
 })
 export class UserSignupComponent implements OnInit{
-  public accountType:AccountType[] = [];
-  public userType:AccountType = AccountType.USER;
+  public accountType:UserType[] = [];
+  public userType:UserType = UserType.USER;
   public userEmail:any;
   public userPassword:any;
   public userConfirmedPassword:any;
@@ -28,7 +28,7 @@ export class UserSignupComponent implements OnInit{
     });
   }
 
-  changeAccountType(type:AccountType): void {
+  changeAccountType(type:UserType): void {
     this.userType = type;
   }
 
