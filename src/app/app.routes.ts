@@ -8,6 +8,7 @@ import { UserProfileComponent } from './pages/user/user-profile/user-profile.com
 import { UserInventoryComponent } from './pages/user/user-inventory/user-inventory.component';
 import { UserCartComponent } from './pages/user/user-cart/user-cart.component';
 import { UserOrdersComponent } from './pages/user/user-orders/user-orders.component';
+import { CheckoutComponent } from './pages/user/checkout/checkout.component';
 
 export const routes: Routes = [
     {
@@ -41,6 +42,10 @@ export const routes: Routes = [
     {
         path: "user/cart",
         component: UserCartComponent
+    },
+    {
+        path: "user/checkout",
+        component: CheckoutComponent
     },
     {
         path: "user/orders",
