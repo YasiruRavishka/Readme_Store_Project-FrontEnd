@@ -1,0 +1,26 @@
+section {
+    margin: 1rem;
+}
+
+.table .itemCode, 
+.table .itemTitle,
+.table .itemUPrice,
+.table .itemQty,
+.table .itemPrice,
+.table .itemAction {
+    align-content: center;
+}
+
+.table .itemCode {
+    text-align: right;
+}
+
+.table .itemQty,
+.table .itemQty input,
+.table .itemAction {
+    text-align: center;
+}
+
+.table .itemQty {
+    width: 5.5rem;
+}
