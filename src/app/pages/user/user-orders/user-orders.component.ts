@@ -14,6 +14,7 @@ export class UserOrdersComponent {
   public currentOrderItems : any;
 
   constructor(private accountService:AccountService) {
+    accountService.loadUser();
     this.orderList = accountService.savedUser.orders;
   }
 
