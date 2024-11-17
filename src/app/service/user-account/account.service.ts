@@ -65,7 +65,6 @@ export class AccountService {
       } else {
         this.savedUser = data;
         this.storage.saveToLocalStorage("savedUser", this.savedUser);
-        this.router.navigate([""]);
       }
     });
   }
