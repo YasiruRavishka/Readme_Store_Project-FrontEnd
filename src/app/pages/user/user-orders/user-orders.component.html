@@ -1,1 +1,72 @@
-<p>user-orders works!</p>
+<div class="container-fluid">
+    <section class="table-responsive">
+        <table class="table table-hover">
+            <thead>
+                <tr>
+                    <th class="orderId" scope="col">#</th>
+                    <th class="orderDate" scope="col">Order Date</th>
+                    <th class="orderTotal" scope="col">Total</th>
+                    <th class="orderAction" scope="col">View Items</th>
+                </tr>
+            </thead>
+            <tbody *ngIf="!isEmptyList(); else emptyOrders">
+                <tr *ngFor="let order of orderList; index as i">
+                    <th class="orderId" scope="row">{{order.id}}</th>
+                    <td class="orderDate">{{order.date}}</td>
+                    <td class="orderTotal">$ {{order.total}}</td>
+                    <td class="orderAction">
+                        <button type="button" class="btn btn-outline-primary"
+                            (click)="setCurrentOrderItems(order.orderItems)" data-bs-toggle="modal"
+                            data-bs-target="#orderItemsModal">
+                            <i class="bi bi-box-arrow-up-right"></i>
+                        </button>
+                    </td>
+                </tr>
+            </tbody>
+            <ng-template #emptyOrders>
+                <tbody>
+                    <tr>
+                        <td colspan="4"
+                            style="height: 10rem; background: #eee; text-align: center; align-content: center; font-size: large;">
+                            Empty...
+                        </td>
+                    </tr>
+                </tbody>
+            </ng-template>
+        </table>
+    </section>
+    <section>
+        <div class="modal fade" id="orderItemsModal" tabindex="-1" aria-hidden="true">
+            <div class="modal-dialog modal-dialog-centered">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h1 class="modal-title fs-5" id="orderItemsModalTitle">Order Items</h1>
+                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                    </div>
+                    <div class="modal-body">
+                        <table class="table table-hover">
+                            <thead>
+                                <tr>
+                                    <th class="itemCode" scope="col">#</th>
+                                    <th class="itemTitle" scope="col">Title</th>
+                                    <th class="itemUPrice" scope="col">Unit Price</th>
+                                    <th class="itemQty" scope="col">Qty</th>
+                                    <th class="itemPrice" scope="col">Price</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr *ngFor="let item of currentOrderItems; index as i">
+                                    <th class="itemCode" scope="row">{{i+1}}</th>
+                                    <td class="itemTitle">{{item.book.name}}</td>
+                                    <td class="itemUPrice">$ {{item.book.price}}</td>
+                                    <td class="itemQty">{{item.qty}}</td>
+                                    <td class="itemPrice">$ {{item.price}}</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+</div>

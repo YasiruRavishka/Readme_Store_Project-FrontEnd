@@ -1,0 +1,25 @@
+section {
+    margin: 1rem;
+}
+
+.table .orderId, 
+.table .orderDate,
+.table .orderTotal,
+.table .orderAction,
+.table .itemCode, 
+.table .itemTitle,
+.table .itemUPrice,
+.table .itemQty,
+.table .itemPrice {
+    align-content: center;
+}
+
+.table .orderId,
+.table .itemCode {
+    text-align: right;
+}
+
+.table .orderAction,
+.table .itemQty {
+    text-align: center;
+}
