@@ -24,7 +24,6 @@ export class UserCartComponent {
 
   loadCart(): void {
     this.cart = this.cartService.savedCart;
-    console.log(this.cart);
   }
 
   removeItemFromCart(item:any): void {
