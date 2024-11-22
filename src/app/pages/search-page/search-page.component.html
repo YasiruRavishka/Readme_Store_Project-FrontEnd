@@ -1,1 +1,15 @@
-<p>search-page works!</p>
+<div class="container py-5">
+    <div class="mb-3">
+        <h3 *ngIf="searchText; else emptySearch">Search - <span class="text-muted">{{searchText}}</span></h3>
+        <ng-template #emptySearch>
+            <h3>Search - <span class="text-muted">all</span></h3>
+        </ng-template>
+    </div>
+    <div class="card-group flex flex-wrap justify-content-evenly">
+        <ng-container *ngFor="let book of bookList">
+            <div *ngIf="!book.isDisable">
+                <app-book-item [book]="book"></app-book-item>
+            </div>
+        </ng-container>
+    </div>
+</div>

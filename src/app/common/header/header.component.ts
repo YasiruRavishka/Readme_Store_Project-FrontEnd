@@ -1,18 +1,20 @@
 import { Component, OnInit } from '@angular/core';
 import { NavigationEnd, Router, RouterLink } from '@angular/router';
 import { AccountService } from '../../service/user-account/account.service';
-import { NgIf } from '@angular/common';
+import { CommonModule, NgIf } from '@angular/common';
 import { UserType } from '../../enum/UserType';
+import { FormsModule } from '@angular/forms';
 
 @Component({
   selector: 'app-header',
   standalone: true,
-  imports: [RouterLink, NgIf],
+  imports: [RouterLink,CommonModule,FormsModule,NgIf],
   templateUrl: './header.component.html',
   styleUrl: './header.component.css'
 })
 export class HeaderComponent implements OnInit{
   public btnSwitchName : String = "Switch to admin";
+  public searchText : String = "";
 
   constructor(private router:Router,private accountService:AccountService) { }
 
@@ -26,6 +28,10 @@ export class HeaderComponent implements OnInit{
         }
       }
     });
+  }
+
+  search() : void {
+    this.router.navigate(['/search'], { queryParams: { searchText: this.searchText } });
   }
 
   isLogged(): Boolean {
