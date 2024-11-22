@@ -59,7 +59,14 @@ export class AccountService {
     if (this.savedUser == null) {
       return;
     }
-    this.http.get(`${this.baseUrl}/user/valid?email=${this.savedUser.email}&password=${this.savedUser.password}`).subscribe(data => {
+    this.http.get(`${this.baseUrl}/user/valid?email=${this.savedUser.email}&password=${this.savedUser.password}`).pipe(
+      catchError(error => {
+        this.savedUser = null;
+        this.forcedLogout();
+        alert("Server error!!");
+        return throwError(() => new Error('Error fetching data.'));
+      })
+    ).subscribe(data => {
       if (data == null) {
         this.forcedLogout();
       } else {
@@ -70,7 +77,12 @@ export class AccountService {
   }
 
   userLogin(loginUser:any): void {
-    this.http.get(`${this.baseUrl}/user/valid?email=${loginUser.email}&password=${loginUser.password}`).subscribe(data => {
+    this.http.get(`${this.baseUrl}/user/valid?email=${loginUser.email}&password=${loginUser.password}`).pipe(
+      catchError(error => {
+        alert("Server error!!");
+        return throwError(() => new Error('Error fetching data.'));
+      })
+    ).subscribe(data => {
       if (data == null) {
         alert("Invalid email or password.");
         throwError(() => new Error('Error fetching data.'));
