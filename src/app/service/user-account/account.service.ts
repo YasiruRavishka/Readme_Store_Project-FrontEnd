@@ -44,7 +44,7 @@ export class AccountService {
   addNewUser(signUpUser:any): void {
     this.http.post(`${this.baseUrl}/user`,signUpUser).pipe(
       catchError(error => {
-        alert("Email is already exists.");
+        alert("Error");
         this.router.navigate([""]);
         return throwError(() => new Error('Error fetching data.'));
       })
