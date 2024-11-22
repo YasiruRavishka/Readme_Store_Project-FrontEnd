@@ -4,10 +4,9 @@
       <li class="nav-item"><a href="#" routerLink="" class="nav-link link-body-emphasis px-2 active"
           aria-current="page">Home</a></li>
       <li *ngIf="isLogged()" class="nav-item"><a href="#" routerLink="user/orders" class="nav-link link-body-emphasis px-2">Orders</a></li>
-      <li *ngIf="isLogged()" class="nav-item"><a href="#" routerLink="user/inventory" class="nav-link link-body-emphasis px-2">Inventory</a>
-      </li>
       <li class="nav-item"><a href="#" routerLink="about" class="nav-link link-body-emphasis px-2">About</a></li>
     </ul>
+    <button *ngIf="isAdmin()" class="btn btn-primary me-auto" type="button" (click)="switchTo()">{{btnSwitchName}}</button>
     <ul *ngIf="isLogged(); else login" class="nav">
       <li class="nav-item"><a href="#" routerLink="user/profile" class="nav-link link-body-emphasis px-2">Profile</a></li>
       <li class="nav-item"><a href="#" routerLink="" class="nav-link link-danger px-2" (click)="logout()">Logout</a></li>
